@@ -1,0 +1,19 @@
+hidden: true
+type: origins:action_on_callback
+entity_action_chosen:
+  type: origins:and
+  actions:
+    - type: origins:execute_command
+      command: "scale set pehkui:hitbox_height 0.8 @s"
+    - type: origins:execute_command
+      command: "scale set pehkui:eye_height 0.7 @s"
+    - type: origins:execute_command
+      command: "scale set pehkui:view_bobbing 0.8 @s"
+    - type: origins:execute_command
+      command: "scale persist set true @s"
+entity_action_lost:
+  type: origins:and
+  actions:
+    - type: origins:execute_command
+      command: "scale reset @s"
+

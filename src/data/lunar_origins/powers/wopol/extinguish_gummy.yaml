@@ -1,0 +1,25 @@
+name: 'Aqua Gummy: Extinguish'
+description: Eating an aqua gummy will extinguish fire.
+
+type: origins:action_on_item_use
+item_condition:
+  type: origins:ingredient
+  ingredient:
+    - item: lunar_origins:aqua_gummy
+    - item: lunar_origins:glimmering_aqua_gummy
+entity_action:
+  type: origins:if_else
+  condition:
+    type: origins:on_fire
+  if_action:
+    type: origins:and
+    actions:
+      - type: origins:play_sound
+        sound: minecraft:ambient.underwater.enter
+      - type: origins:spawn_particles
+        particle: minecraft:splash
+        count: 200
+        spread: {x: 1, y: 1, z: 1}
+      - type: origins:emit_game_event
+        event: minecraft:splash
+      - type: origins:extinguish

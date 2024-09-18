@@ -1,0 +1,15 @@
+schemaVersion: 1
+id: "lunar_origins_wopol"
+version: "0.1"
+name: "Lunar Origins: Wopol"
+description: The aquatic Wopol origin!
+authors:
+  - Kevin Moonglow
+license: All-Rights-Reserved
+icon: pack.png
+depends:
+  origins: ">=1.10.0"
+  lunar_origins_core: ">=0.4"
+  eggolib: ">=1.10.4"
+
+

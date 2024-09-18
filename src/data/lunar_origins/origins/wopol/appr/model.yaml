@@ -1,0 +1,11 @@
+name: "Scaling: Model"
+description: |-
+  Scales the height of your entire player model along with its hitbox. Use this option if you're playing with a vanilla Minecraft skin, or a CPM or figura model that is close to the vanilla human model in size.
+
+  Model height  - 0.8
+  View bobbing  - 0.8
+icon: {item: minecraft:stone_slab}
+order: 1
+impact: 0
+powers:
+  - lunar_origins:wopol/appr/model

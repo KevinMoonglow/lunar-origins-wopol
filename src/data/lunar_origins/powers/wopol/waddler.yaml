@@ -1,0 +1,71 @@
+name: Waddler
+description: You waddle slowly on land due to the shape of your legs and feet.
+type: origins:multiple
+land:
+  type: origins:modify_attribute
+  attribute: minecraft:generic.movement_speed
+  modifier:
+    operation: multiply_base_multiplicative
+    value: -0.5
+  condition:
+    type: origins:and
+    conditions:
+    - compare_to: 0
+      comparison: <=
+      fluid: minecraft:water
+      type: origins:fluid_height
+air:
+  type: origins:modify_velocity
+  condition:
+    type: origins:and
+    conditions:
+    - type: origins:fluid_height
+      fluid: minecraft:water
+      comparison: '<='
+      compare_to: 0
+    - type: origins:on_block
+      inverted: true
+    - type: origins:or
+      conditions:
+      - type: origins:power
+        power: '*:wopol/waterspout_gummy_cooldown'
+        inverted: true
+      - type: origins:resource
+        resource: '*:wopol/waterspout_gummy_cooldown'
+        comparison: '=='
+        compare_to: 0
+    - type: origins:or
+      conditions:
+      - type: origins:power
+        power: '*:wopol/waterspout_spell_cooldown'
+        inverted: true
+      - type: origins:resource
+        resource: '*:wopol/waterspout_spell_cooldown'
+        comparison: '=='
+        compare_to: 0
+    - type: origins:or
+      conditions:
+      - type: origins:power
+        power: '*:wopol/dolphin_jump_jump'
+        inverted: true
+      - type: origins:resource
+        resource: '*:wopol/dolphin_jump_jump'
+        comparison: '=='
+        compare_to: 0
+
+  axes: ['x', 'z']
+  modifier:
+    operation: multiply_base_additive
+    value: -0.5
+#  type: origins:modify_air_speed
+#  modifier:
+#    operation: multiply_base_multiplicative
+#    # ½ speed
+#    value: -0.5
+#  condition:
+#    type: origins:and
+#    conditions:
+#    - type: origins:fluid_height
+#      fluid: minecraft:water
+#      comparison: '<='
+#      compare_to: 0

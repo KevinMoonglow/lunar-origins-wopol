@@ -1,0 +1,147 @@
+# Force crawling state when at 0 breath
+# This requires a version of eggolib for Minecraft 1.19.3 or newer, so we put
+# it in a seperate file so that this condition can fail gracefully.
+
+$if:
+  flag: no_crawling
+  if_value:
+    type: origins:simple
+    hidden: true
+  else_value:
+    type: origins:multiple
+    hidden: true
+
+    crawling:
+      $$!alt_crawling:
+        type: eggolib:crawling
+      $$alt_crawling:
+        type: lunar_origins:crawling
+      
+      condition:
+        type: origins:and
+        conditions:
+        - $$!modify_breathing:
+            type: origins:resource
+            resource: lunar_origins:wopol/gillsplus_breath
+            comparison: <=
+            compare_to: 0
+        - type: origins:air
+          comparison: <=
+          compare_to: 35
+    no_jump:
+      type: origins:modify_jump
+      modifier:
+        operation: multiply_total
+        value: -1
+      condition:
+        type: origins:and
+        conditions:
+        - $$!modify_breathing:
+            type: origins:resource
+            resource: lunar_origins:wopol/gillsplus_breath
+            comparison: <=
+            compare_to: 0
+        - type: origins:air
+          comparison: <=
+          compare_to: 35
+    short_climb:
+      type: origins:climbing
+      allow_holding: false
+
+      condition:
+        type: origins:and
+        conditions:
+        - $$!modify_breathing:
+            type: origins:resource
+            resource: lunar_origins:wopol/gillsplus_breath
+            comparison: <=
+            compare_to: 0
+        - type: origins:air
+          comparison: <=
+          compare_to: 35
+        - type: origins:or
+          conditions:
+            - type: origins:and
+              conditions:
+              - type: origins:block_collision
+                offset_x: 0.1
+                offset_y: 0
+                offset_z: 0
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                    inverted: true
+                  x: 1
+                  y: 1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                  x: 1
+                  y: 0
+            - type: origins:and
+              conditions:
+              - type: origins:block_collision
+                offset_x: -0.1
+                offset_y: 0
+                offset_z: 0
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                    inverted: true
+                  x: -1
+                  y: 1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                  x: -1
+                  y: 0
+            - type: origins:and
+              conditions:
+              - type: origins:block_collision
+                offset_x: 0
+                offset_y: 0
+                offset_z: 0.1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                    inverted: true
+                  z: 1
+                  y: 1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                  z: 1
+                  y: 0
+            - type: origins:and
+              conditions:
+              - type: origins:block_collision
+                offset_x: 0
+                offset_y: 0
+                offset_z: -0.1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                    inverted: true
+                  z: -1
+                  y: 1
+              - type: origins:in_block
+                block_condition:
+                  type: origins:offset
+                  condition:
+                    type: origins:movement_blocking
+                  z: -1
+                  y: 0

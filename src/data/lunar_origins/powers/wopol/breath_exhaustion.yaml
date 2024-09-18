@@ -1,0 +1,45 @@
+type: origins:multiple
+hidden: true
+
+sprint_exhaust:
+  type: origins:action_over_time
+  interval: 10
+  condition:
+    type: origins:and
+    conditions:
+      - type: origins:sprinting
+      - type: origins:fluid_height
+        fluid: minecraft:water
+        comparison: '<='
+        compare_to: 0
+      - type: origins:on_block
+      - type: origins:status_effect
+        effect: lunar_origins:hydration
+        inverted: true
+  entity_action:
+    type: origins:gain_air
+    value: -7
+
+jump_exhaust:
+  type: origins:modify_jump
+  condition:
+    type: origins:and
+    conditions:
+      - type: origins:fluid_height
+        fluid: minecraft:water
+        comparison: '<='
+        compare_to: 0
+      - type: origins:status_effect
+        effect: lunar_origins:hydration
+        inverted: true
+  entity_action:
+    type: origins:gain_air
+    value: -2
+
+no_sprint_breathless:
+  type: origins:prevent_sprinting
+  condition:
+    type: origins:air
+    comparison: '<'
+    compare_to: 30
+

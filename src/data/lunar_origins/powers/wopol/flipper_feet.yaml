@@ -1,0 +1,14 @@
+name: Flipper Feet
+description: The shape of your feet prevents you from wearing most normal-shaped footwear.
+type: origins:restrict_armor
+feet:
+  type: origins:or
+  inverted: true
+  conditions:
+    - type: origins:enchantment
+      enchantment: lunar_origins:molding
+      comparison: '>'
+      compare_to: 0
+    - type: origins:ingredient
+      ingredient:
+        tag: lunar_origins:can_wear_on_flippers

@@ -1,0 +1,31 @@
+name: Wopol
+impact: 3
+description: |-
+  A small fluffy aquatic creature with big flipper feet. These creatures are
+  well adapted to the water, but have difficulties navigating dry land.
+  §cRequires Fast Graphics or Vignette disabled.
+icon:
+  item: lunar_origins:wopol_icon
+
+powers:
+- lunar_origins:wopol/short
+- lunar_origins:wopol/aqua_lungs
+- lunar_origins:water_breather
+- lunar_origins:wopol/breath_exhaustion
+- lunar_origins:wopol/water_focus
+- origins:aqua_affinity
+- lunar_origins:wopol/aqua_miner
+- lunar_origins:wopol/extinguish_gummy
+- lunar_origins:wopol/wet_goggles_gummy
+- origins:swim_speed
+- lunar_origins:wopol/waddler
+- lunar_origins:wopol/dolphin_jump
+- lunar_origins:wopol/waterspout_gummy
+- origins:like_water
+- origins:aquatic
+- origins:conduit_power_on_land
+- lunar_origins:wopol/conduit_swimming_gummy
+- lunar_origins:wopol/air_from_potions
+- lunar_origins:wopol/air_from_gummies
+- lunar_origins:wopol/crawl_on_no_breath
+- lunar_origins:wopol/flipper_feet

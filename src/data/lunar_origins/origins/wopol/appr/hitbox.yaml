@@ -1,0 +1,12 @@
+name: "Scaling: Hitbox"
+description: |-
+  Scales only your player hitbox to match the Wopol's size. Use this option if you plan to use the official Wopol model or a custom CPM or Figura model that is visually close enough to Wopol's size to make sense.
+
+  Hitbox Height - 0.8
+  Eye Height    - 0.7
+  View bobbing  - 0.8
+icon: {item: minecraft:glass}
+order: 0
+impact: 0
+powers:
+  - lunar_origins:wopol/appr/hitbox

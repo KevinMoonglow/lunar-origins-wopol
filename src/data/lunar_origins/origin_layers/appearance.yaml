@@ -1,0 +1,14 @@
+name: "appearance"
+missing_name: Normal
+missing_description: This origin is using your normal appearance.
+auto_choose: true
+
+order: 1
+origins:
+  - condition:
+      type: origins:origin
+      origin: lunar_origins:wopol
+      layer: origins:origin
+    origins:
+      - lunar_origins:wopol/appr/hitbox
+      - lunar_origins:wopol/appr/model
